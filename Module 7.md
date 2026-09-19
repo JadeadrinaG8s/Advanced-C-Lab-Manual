@@ -15,14 +15,50 @@ Else
 6.	Return 0
  
 Program:
-
 //type your code here
+```
+#include <stdio.h>
 
+struct eligible
+{
+    int age;
+    char n[50];
+};
 
+int main()
+{
+    struct eligible e;
+
+    printf("Enter name: ");
+    scanf("%s", e.n);
+
+    printf("Enter age: ");
+    scanf("%d", &e.age);
+
+    if (e.age <= 6)
+    {
+        printf("Vaccine Eligibility: No\n");
+    }
+    else
+    {
+        printf("Vaccine Eligibility: Yes\n");
+    }
+
+    printf("Name: %s\n", e.n);
+    printf("Age: %d\n", e.age);
+
+    return 0;
+}
+```
 Output:
-
 //paste your output here
-
+```
+Enter name: kade
+Enter age: 18
+Vaccine Eligibility: Yes
+Name: kade
+Age: 18
+```
 
 Result:
 Thus, the program is verified successfully. 
@@ -45,16 +81,42 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+struct numbers
+{
+    int a;
+    int b;
+};
 
+struct numbers add(struct numbers n)
+{
+    n.a = n.a + n.b;
+    return n;
+}
 
+int main()
+{
+    struct numbers n, result;
+
+    printf("Enter values of a and b: ");
+    scanf("%d %d", &n.a, &n.b);
+
+    result = add(n);
+
+    printf("Result = %d", result.a);
+
+    return 0;
+}
+```
 
 Output:
-
-
 //paste your output here
-
-
+```
+Enter values of a and b: 10 20
+Result = 30
+```
 
 
 Result:
@@ -87,17 +149,43 @@ Use scanf to input the file name into the name array.
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+int main()
+{
+    FILE *p;
+    char name[50];
 
+    printf("Enter file name: ");
+    scanf("%s", name);
 
+    p = fopen(name, "w");
 
+    if (p == NULL)
+    {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    printf("File %s created successfully.\n", name);
+    printf("File opened successfully.\n");
+
+    fclose(p);
+
+    printf("File closed successfully.\n");
+
+    return 0;
+}
+```
 Output:
-
-
 //paste your output here
-
-
-
+```
+Enter file name: sample.txt
+File sample.txt created successfully.
+File opened successfully.
+File closed successfully.
+```
 
 
 
@@ -134,7 +222,47 @@ Use scanf to input the file name into the name array and the number of strings i
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+int main()
+{
+    FILE *p;
+    char name[50], text[100];
+    int num, i;
+
+    printf("Enter file name: ");
+    scanf("%s", name);
+
+    printf("Enter number of strings: ");
+    scanf("%d", &num);
+
+    p = fopen(name, "w");
+
+    if (p == NULL)
+    {
+        printf("Error opening file.\n");
+        return 1;
+    }
+
+    printf("File opened successfully.\n");
+
+    getchar();  // clear newline
+
+    for (i = 0; i < num; i++)
+    {
+        printf("Enter string %d: ", i + 1);
+        fgets(text, sizeof(text), stdin);
+        fputs(text, p);
+    }
+
+    fclose(p);
+
+    printf("Data added successfully.\n");
+
+    return 0;
+}
+```
 
 
 
@@ -142,7 +270,15 @@ Output:
 
 
 //paste your output here
-
+```
+Enter file name: sample.txt
+Enter number of strings: 3
+File opened successfully.
+Enter string 1: Hello
+Enter string 2: Welcome
+Enter string 3: C Programming
+Data added successfully.
+```
 
 
 
@@ -188,15 +324,76 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
+#include <stdlib.h>
 
+struct subject
+{
+    char name[50];
+    int marks;
+};
 
+int main()
+{
+    struct subject *s;
+    int n, i;
 
+    printf("Enter number of subjects: ");
+    scanf("%d", &n);
+
+    s = (struct subject *)malloc(n * sizeof(struct subject));
+
+    if (s == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter subject name: ");
+        scanf("%s", s[i].name);
+
+        printf("Enter marks: ");
+        scanf("%d", &s[i].marks);
+    }
+
+    printf("\nStudent Details:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Subject: %s\n", s[i].name);
+        printf("Marks: %d\n", s[i].marks);
+    }
+
+    free(s);
+
+    return 0;
+}
+```
 
 Output:
 
 
 //paste your output here
+```
+Enter number of subjects: 3
+Enter subject name: Maths
+Enter marks: 90
+Enter subject name: Physics
+Enter marks: 85
+Enter subject name: English
+Enter marks: 88
 
+Student Details:
+Subject: Maths
+Marks: 90
+Subject: Physics
+Marks: 85
+Subject: English
+Marks: 88
+```
 
 
 
