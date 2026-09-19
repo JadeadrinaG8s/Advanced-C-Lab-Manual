@@ -17,19 +17,73 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+int main()
+{
+    int n;
 
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    switch (n)
+    {
+        case 1:
+            printf("one");
+            break;
+
+        case 2:
+            printf("two");
+            break;
+
+        case 3:
+            printf("three");
+            break;
+
+        case 4:
+            printf("four");
+            break;
+
+        case 5:
+            printf("five");
+            break;
+
+        case 6:
+            printf("six");
+            break;
+
+        case 7:
+            printf("seven");
+            break;
+
+        case 8:
+            printf("eight");
+            break;
+
+        case 9:
+            printf("nine");
+            break;
+
+        default:
+            printf("Greater than 9");
+    }
+
+    return 0;
+}
+```
 
 
 Output:
 
 
 //paste your output here
-
-
-
-
-
+```
+Enter a number: 7
+seven
+Enter a number: 13
+Greater than 9
+```
 
 Result:
 Thus, the program is verified successfully
@@ -49,7 +103,35 @@ Program:
 
 //type your code here
 
+```
+#include <stdio.h>
 
+int main()
+{
+    char a[50];
+    int i, j, c;
+
+    printf("Enter the numbers: ");
+    scanf("%s", a);
+
+    for (i = 0; i <= 3; i++)
+    {
+        c = 0;
+
+        for (j = 0; a[j] != '\0'; j++)
+        {
+            if (a[j] == i + '0')
+            {
+                c++;
+            }
+        }
+
+        printf("%d ", c);
+    }
+
+    return 0;
+}
+```
 
 
 Output:
@@ -57,7 +139,10 @@ Output:
 
 //paste your output here
 
-
+```
+Enter the numbers: 1231231230
+1 3 3 3
+```
 
 
 
@@ -85,7 +170,47 @@ Free the memory allocated for each string in s Free the memory allocated for s
 Program:
 
 //type your code here
+```
+#include <stdio.h>
+#include <string.h>
 
+void swap(char *a, char *b)
+{
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void permute(char s[], int left, int right)
+{
+    int i;
+
+    if (left == right)
+    {
+        printf("%s\n", s);
+        return;
+    }
+
+    for (i = left; i <= right; i++)
+    {
+        swap(&s[left], &s[i]);
+        permute(s, left + 1, right);
+        swap(&s[left], &s[i]);
+    }
+}
+
+int main()
+{
+    char s[20];
+
+    printf("Enter a string: ");
+    scanf("%s", s);
+
+    permute(s, 0, strlen(s) - 1);
+
+    return 0;
+}
+```
 
 
 
@@ -94,7 +219,16 @@ Output:
 
 //paste your output here
 
+```
+Enter a string: ABC
 
+ABC
+ACB
+BAC
+BCA
+CBA
+CAB
+```
 
 
 
@@ -118,9 +252,42 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+int main()
+{
+    int n, i, j, min, len;
 
+    printf("Enter n: ");
+    scanf("%d", &n);
 
+    len = n * 2 - 1;
+
+    for (i = 0; i < len; i++)
+    {
+        for (j = 0; j < len; j++)
+        {
+            min = i;
+
+            if (j < min)
+                min = j;
+
+            if (len - 1 - i < min)
+                min = len - 1 - i;
+
+            if (len - 1 - j < min)
+                min = len - 1 - j;
+
+            printf("%d ", n - min);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+```
 
 Output:
 
@@ -128,7 +295,17 @@ Output:
 //paste your output here
 
 
+```
+Enter n: 4
 
+4 4 4 4 4 4 4
+4 3 3 3 3 3 4
+4 3 2 2 2 3 4
+4 3 2 1 2 3 4
+4 3 2 2 2 3 4
+4 3 3 3 3 3 4
+4 4 4 4 4 4 4
+```
 
 
 
@@ -157,6 +334,30 @@ o	Call the square() function and display the result.
 Program:
 
 //type your code here
+```
+#include <stdio.h>
+
+int square()
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    return n * n;
+}
+
+int main()
+{
+    int result;
+
+    result = square();
+
+    printf("Square = %d", result);
+
+    return 0;
+}
+```
 
 
 
@@ -166,7 +367,10 @@ Output:
 
 //paste your output here
 
-
+```
+Enter a number: 5
+Square = 25
+```
 
 
 
