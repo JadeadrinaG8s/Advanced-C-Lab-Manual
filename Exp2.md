@@ -14,14 +14,45 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+struct numbers
+{
+    int a;
+    int b;
+};
+
+struct numbers add(struct numbers n)
+{
+    n.a = n.a + n.b;
+    return n;
+}
+
+int main()
+{
+    struct numbers n, result;
+
+    printf("Enter values of a and b: ");
+    scanf("%d %d", &n.a, &n.b);
+
+    result = add(n);
+
+    printf("Result = %d", result.a);
+
+    return 0;
+}
+```
 
 
 
 Output:
 
 //paste your output screenshots here
-
+```
+Enter values of a and b: 10 20
+Result = 30
+```
 
 
 
