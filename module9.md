@@ -14,12 +14,53 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
+
+int stack[100];
+int top = -1;
+
+void display()
+{
+    int i;
+
+    if (top == -1)
+    {
+        printf("Stack is empty");
+    }
+    else
+    {
+        printf("Stack elements are:\n");
+
+        for (i = top; i >= 0; i--)
+        {
+            printf("%d\n", stack[i]);
+        }
+    }
+}
+
+int main()
+{
+    stack[++top] = 10;
+    stack[++top] = 20;
+    stack[++top] = 30;
+
+    display();
+
+    return 0;
+}
+```
 
 Output:
 
 //paste your output here
 
-
+```
+Stack elements are:
+30
+20
+10
+```
 
 Result:
 Thus, the program to display stack elements using an array is verified successfully.
@@ -37,11 +78,47 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+#define SIZE 100
+
+float stack[SIZE];
+int top = -1;
+
+void push(float value)
+{
+    if (top == SIZE - 1)
+    {
+        printf("Stack Overflow\n");
+    }
+    else
+    {
+        top++;
+        stack[top] = value;
+        printf("Element pushed: %.2f\n", value);
+    }
+}
+
+int main()
+{
+    float value;
+
+    printf("Enter element to push: ");
+    scanf("%f", &value);
+
+    push(value);
+
+    return 0;
+}
+```
 Output:
 
 //paste your output here
-
+```
+Enter element to push: 25.5
+Element pushed: 25.50
+```
 
 
 
@@ -63,11 +140,47 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+#define SIZE 100
+
+int queue[SIZE];
+int front = 0;
+int rear = 2;
+
+void display()
+{
+    int i;
+
+    printf("Queue elements are:\n");
+
+    for (i = front; i <= rear; i++)
+    {
+        printf("%d\n", queue[i]);
+    }
+}
+
+int main()
+{
+    queue[0] = 10;
+    queue[1] = 20;
+    queue[2] = 30;
+
+    display();
+
+    return 0;
+}
+```
 Output:
 
 //paste your output here
-
+```
+Queue elements are:
+10
+20
+30
+```
 
 Result:
 Thus, the program to display queue elements using array is verified successfully.
@@ -87,11 +200,49 @@ Algorithm:
 Program:
 
 //type your code here
+```
+#include <stdio.h>
+
+#define SIZE 100
+
+float queue[SIZE];
+int front = 0;
+int rear = -1;
+
+void enqueue(float value)
+{
+    if (rear == SIZE - 1)
+    {
+        printf("Queue is full\n");
+    }
+    else
+    {
+        rear++;
+        queue[rear] = value;
+        printf("Element inserted: %.2f\n", value);
+    }
+}
+
+int main()
+{
+    float value;
+
+    printf("Enter element to insert: ");
+    scanf("%f", &value);
+
+    enqueue(value);
+
+    return 0;
+}
+```
 
 Output:
 
 //paste your output here
-
+```
+Enter element to insert: 25.5
+Element inserted: 25.50
+```
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
 
@@ -122,10 +273,73 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 Program:
 
 //type your code here
+```
+#include <stdio.h>
 
+#define SIZE 100
+
+int queue[SIZE];
+int front = -1;
+int rear = -1;
+
+void deleteElement()
+{
+    if (front == -1)
+    {
+        printf("Queue is empty\n");
+    }
+    else
+    {
+        printf("Deleted element: %d\n", queue[front]);
+
+        front++;
+
+        if (front > rear)
+        {
+            front = -1;
+            rear = -1;
+        }
+    }
+}
+
+int main()
+{
+    queue[0] = 10;
+    queue[1] = 20;
+    queue[2] = 30;
+
+    front = 0;
+    rear = 2;
+
+    printf("Queue before deletion:\n");
+    printf("10 20 30\n");
+
+    deleteElement();
+
+    printf("Queue after deletion:\n");
+
+    if (front == -1)
+        printf("Queue is empty\n");
+    else
+    {
+        int i;
+        for (i = front; i <= rear; i++)
+            printf("%d ", queue[i]);
+    }
+
+    return 0;
+}
+```
 Output:
 
 //paste your output here
+```
+Queue before deletion:
+10 20 30
+Deleted element: 10
+Queue after deletion:
+20 30
+```
 
 
 Result:
